@@ -1,0 +1,24 @@
+.profile {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .profile img {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile p {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .profile strong {
+    font-weight: bold;
+  }
+  
