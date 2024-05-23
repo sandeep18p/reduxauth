@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
-
-export default function Profile() {
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/authSlice';
+export default function Profile({setPage}) {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
   const userId = localStorage.getItem('userId');
+  const dispatch = useDispatch();
+
+  function handleC(){
+    dispatch(logout())
+    setPage("Login")
+  }
 
   useEffect(() => {
     if (!userId) {
@@ -37,6 +44,7 @@ export default function Profile() {
   }
 
   return (
+    <>
     <div className="profile">
       <h1>Profile</h1>
       <img src={profile.image} alt={`${profile.firstName} ${profile.lastName}`} />
@@ -45,6 +53,9 @@ export default function Profile() {
       <p><strong>First Name:</strong> {profile.firstName}</p>
       <p><strong>Last Name:</strong> {profile.lastName}</p>
       <p><strong>Gender:</strong> {profile.gender}</p>
+      <div><button onClick={()=>{handleC()}}>Logout</button></div>
     </div>
+    
+    </>
   );
 }

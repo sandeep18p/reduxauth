@@ -6,11 +6,14 @@ import { useState } from 'react';
 
 function App() {
   const [page, setPage] = useState("Login");
+  function change(){
+    setPage("Profile")
+  }
 
   return (
     <>
       <Nav setPage={setPage} />
-      {page === "Login" ? <Login setPage={setPage} /> : <Profile />}
+      {page === "Login" ? <Login setPage={setPage} change={change}/> : <Profile setPage={setPage}/>}
     </>
   );
 }

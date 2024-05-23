@@ -3,11 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/actions/authActions';
 import './Login.css';
 
-export default function Login({ setPage }) {
+export default function Login({ setPage,change }) {
   const dispatch = useDispatch();
   const usernameRef = useRef();
   const passwordRef = useRef();
   const auth = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (auth.status === 'succeeded') {
+      setPage('Profile');
+      console.log('working');
+      change();
+    }
+  },);
+  console.log("id ");
+  if(localStorage.getItem('userId')){
+    setPage('Profile');
+  }
+  console.log(localStorage.getItem('userId'))
 
   useEffect(() => {
     if (auth.status === 'succeeded') {
