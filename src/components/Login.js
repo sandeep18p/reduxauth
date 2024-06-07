@@ -31,6 +31,8 @@ export default function Login({ setPage,change }) {
   function handleSubmit() {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
+    console.log("$" + username + "$");
+console.log("$" + password + "$");
     dispatch(loginUser({ username, password }));
   }
 
